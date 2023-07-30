@@ -5,6 +5,7 @@ import {AiOutlineHeart} from 'react-icons/ai';
 import {GiHamburgerMenu } from 'react-icons/gi'
 import {  useNavigate } from 'react-router-dom';
 import ProfileBox from './ProfileBox';
+import { Link } from 'react-router-dom';
 
 
 export default function Navbar() {
@@ -23,13 +24,13 @@ function profile(){
     <div className='bg-black flex items-center p-2 '>
         <div className='flex items-center gap-x-2 sm:gap-x-0'>
          <GiHamburgerMenu className='bg-white sm:invisible' />  
-        <span className='text-white '>shopit</span>
+        <Link to="/dashboard"><span className='text-white cursor-pointer '>shopit</span></Link>
         </div>
         <div className='invisible sm:visible flex w-0 sm:grow justify-center sm:gap-x-12  text-white'> 
-            <div className='bold'>Sale</div>
-            <div className='bold'>Trends</div>
-            <div className='bold'>Mens</div>
-            <div className='bold'>Womens</div>
+        <Link to="/dashboard">    <div className=' cursor-pointer bold'>Sale</div></Link>
+            <Link to="/dashboard"><div className=' cursor-pointer bold'>Trends</div></Link>
+            <Link to="/dashboard"><div className=' cursor-pointer bold'>Mens</div></Link>
+            <Link to="/dashboard"><div className=' cursor-pointer bold'>Womens</div></Link>
         </div>
         <div className='flex grow sm:grow-0  justify-end  gap-x-4 mt-2 '>
        <div className='flex flex-col items-center '> 

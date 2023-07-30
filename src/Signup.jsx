@@ -16,24 +16,23 @@ import { Link, useNavigate } from 'react-router-dom'
   // }
 
   function submithandler(){
-    if(username=="" || password==""||email==""||phone==""){
-      return;
-    }
+    // if(username==="" || password===""||email===""||phone===""){
+    //   return;
+    // }
     axios.post('https://api-pi-livid-33.vercel.app/user/signup',{
       username:username,
       password:password,
       phone:phone,
       email:email
-    }).then(res =>{
+    }).then((res) =>{
       console.log(res)
-      navigate('/dashboard')
-    })
+      navigate('/login')
+  })
     .catch(err => {
       if(err){
         console.log(err.response.data.msg)
         seter(err.response.data.msg)
-      }
-      
+      }  
     })
     
   }
@@ -46,7 +45,7 @@ import { Link, useNavigate } from 'react-router-dom'
       <input required className='rounded-sm text-sm ' type='password' value={password}  onChange={(e)=>(setpassword(e.target.value))}  placeholder='password' />
       <input required className='rounded-sm text-sm ' type="email" value={email}  onChange={(e)=>(setemail(e.target.value))} placeholder='email'/>
       <input required className='rounded-sm text-sm focus:border-blue-300 ' type="number" value={phone}  onChange={(e)=>(setphone(e.target.value))} placeholder='phonenumber' />
-      <button  className="bg-blue-200 font-semibold   border-blue-300" type='submit' onClick={submithandler}>Submit</button>
+      <button  className="bg-blue-200 font-semibold   border-blue-300"  onClick={submithandler}>Submit</button>
       </form>
       {er && <div className='text-red-700 font-bold'>{er}</div>}
       <div className="flex justify-between">
